@@ -15,13 +15,15 @@ class CaptureApp(rumps.App):
     copyToClipboard = 1
 
     name = "Capture Text"
-    indicatorIcon = basePath + "icon.png"
+    indicatorIcon = basePath + "icon-white.png"
+    windowIcon = basePath + "icon-black.png"
 
     def __init__(self):
         #super(AwesomeStatusBarApp, self).__init__("Awesome App")
         super(CaptureApp, self).__init__(self.name)
         self.menu = ["Capture"]
         self.icon = self.indicatorIcon
+        self.template = True
         rumps.debug_mode(False)
 
     @clicked('Capture')
@@ -31,7 +33,7 @@ class CaptureApp(rumps.App):
         if(text):
             #Window(text).run()
             window = Window(message='', title=self.name, default_text=text, ok="Copy to clipboard", cancel="close")
-            window.icon = self.indicatorIcon
+            window.icon = self.windowIcon
             response = window.run()
             if response.clicked == CaptureApp.copyToClipboard:
                 addToClipboard(response.text)
@@ -45,26 +47,25 @@ class CaptureApp(rumps.App):
 
 def getScreenSelection():
     #outfile = basePath + timeStamp() + ".jpg"
-    outfile = basePath + "screenshot.jpg"
-    osExec("screencapture -i " + outfile)
+    #outfile = basePath + "screenshot.jpg"
+    outfile = "/tmp/recog-screenshot.jpg"
+    out,err = osExec("screencapture -i " + outfile)
+    if err:
+        err = err.strip().decode('utf-8')
     return outfile
 
 def getText(picture):
     command = basePath + "tesseract " + picture + " stdout 2>/dev/null"
     output, err = osExec(command)
-
     return output.strip().decode('utf-8')
 
 def addToClipboard(text):
     pyperclip.copy(text)
 
 
-
 def osExec(command):
     proc = subprocess.Popen(command, stdout=subprocess.PIPE, shell=True)
     return proc.communicate()
-
-
 
 
 if __name__ == '__main__':
