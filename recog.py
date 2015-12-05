@@ -18,15 +18,17 @@ class CaptureApp(rumps.App):
     indicatorIcon = basePath + "icon-white.png"
     windowIcon = basePath + "icon-black.png"
 
+
+
     def __init__(self):
         #super(AwesomeStatusBarApp, self).__init__("Awesome App")
         super(CaptureApp, self).__init__(self.name)
-        self.menu = ["Capture"]
+        #self.menu = []
         self.icon = self.indicatorIcon
         self.template = True
         rumps.debug_mode(False)
 
-    @clicked('Capture')
+    @clicked('Capture Selection')
     def button(self, sender):
         imagePath = getScreenSelection()
         text = getText(imagePath)
@@ -38,10 +40,10 @@ class CaptureApp(rumps.App):
             if response.clicked == CaptureApp.copyToClipboard:
                 addToClipboard(response.text)
 
-
     # @clicked('About')
     # def button(self, sender):
     #     #show the about page
+    #     Window("hi").run()
 
 
 
