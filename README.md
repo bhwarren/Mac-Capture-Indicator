@@ -15,9 +15,9 @@ This requires the 'tesseract' software be installed.  Directions for a complete 
 2) install tesseract: </br>
 `$ brew install tesseract`
 
-3a) install the indicator: </br>
-`$ curl -O https://github.com/bhwarren/OCRStatusBar/OCRStatusBar.dmg && open OCRStatusBar.dmg` </br>
-Then, of course, drag the application into the Applications folder
+3) install the indicator: </br>
+Download this dmg file https://github.com/bhwarren/OCRStatusBar/blob/master/OCRStatusBar.dmg?raw=true</br>
+Then, of course, open it and drag OCRStatusBar.app into the Applications folder
 
 ## Compile instructions
 prerequisites: the 'py2app' 'rumps' and 'pyperclip' packages are installed with pip
