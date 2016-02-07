@@ -1,5 +1,6 @@
 import subprocess
 import os
+import sys
 import time
 from rumps import *
 import pyperclip
@@ -24,6 +25,15 @@ class CaptureApp(rumps.App):
         self.icon = self.indicatorIcon
         self.template = True
         rumps.debug_mode(False)
+
+        if not tesseractInstalled():
+            message = "tesseract not installed, please follow these steps to provide functionality. These steps can be found at https://github.com/bhwarren/OCRStatusBar/blob/master/README.md"
+
+            steps = "1) open terminal and install homebrew if you haven't previously by copying everything after '$' and pressing enter: \n\n $ /usr/bin/ruby -e \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)\" \n\n 2) then install tesseract by again, copying everything after '$' and pressing enter: \n $ brew install tesseract"
+
+            window = Window(message=message, title=self.name, default_text=steps, ok=None)
+            window.run()
+            sys.exit(0)
 
     @clicked('Capture Selection')
     def button(self, sender):
@@ -71,6 +81,24 @@ def addToClipboard(text):
 def osExec(command):
     proc = subprocess.Popen(command, stdout=subprocess.PIPE, shell=True, env=envCopy)
     return proc.communicate()
+
+def tesseractInstalled():
+    def isExecutable(path):
+        return os.path.isfile(path) and os.access(path, os.X_OK)
+
+    path, fileName = os.path.split("tesseract")
+    if path:
+        if isExecutable("tesseract"):
+            return True
+    else:
+        for pathDir in os.environ["PATH"].split(os.pathsep):
+            pathDir = pathDir.strip('"')
+            executable = os.path.join(pathDir, "tesseract")
+
+            if isExecutable(executable):
+                return True
+
+    return False
 
 
 if __name__ == '__main__':

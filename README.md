@@ -9,15 +9,17 @@ Licensed under the GNU GPL. See LICENSE.md or http://www.gnu.org/licenses/gpl.ht
 This requires the 'tesseract' software be installed.  Directions for a complete installation are below.
 
 ## Installing
-1) install homebrew if you haven't previously (directions copied from http://brew.sh): </br>
+
+1) Open Terminal.app and install homebrew (if you haven't previously) by copying and pasting everything after the '$' into the terminal and press enter: </br>
 `$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
 
-2) install tesseract: </br>
+2) install tesseract the same way: </br>
 `$ brew install tesseract`
 
 3) install the indicator: </br>
-Download this dmg file https://github.com/bhwarren/OCRStatusBar/blob/master/OCRStatusBar.dmg?raw=true</br>
-Then, of course, open it and drag OCRStatusBar.app into the Applications folder
+Download the latest OCRStatusBar.dmg file from the releases here:
+https://github.com/bhwarren/OCRStatusBar/releases/download/1.0.0/OCRStatusBar.dmg </br>
+Then open it and drag OCRStatusBar.app into the Applications folder
 
 ## Compile instructions
 prerequisites: the 'py2app' 'rumps' and 'pyperclip' packages are installed with pip
