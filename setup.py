@@ -1,7 +1,7 @@
 from setuptools import setup
 
-APP = ['StatusBar-OCR.py']
-DATA_FILES = ['icon-black.png']
+APP = ['OCRStatusBar.py']
+DATA_FILES = ['icon-black.png','LICENSE.md']
 OPTIONS = {
     'argv_emulation': True,
     'plist': {
@@ -16,9 +16,10 @@ setup(
     data_files=DATA_FILES,
     options={'py2app': OPTIONS},
     setup_requires=['py2app'],
-    name='StatusBar-OCR',
+    name='OCRStatusBar',
+    version='1.0.0',
     description='A status bar indicator for Optical Character Recognition',
     author='Bo Warren',
-    url='https://github.com/bhwarren/StatusBar-OCR',
+    url='https://github.com/bhwarren/OCRStatusBar',
     license='GPL License',
 )
