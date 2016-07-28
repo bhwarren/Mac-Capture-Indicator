@@ -21,8 +21,11 @@ Download the latest OCRStatusBar.dmg file from the releases here:
 https://github.com/bhwarren/OCRStatusBar/releases/download/1.0.0/OCRStatusBar.dmg </br>
 Then open it and drag OCRStatusBar.app into the Applications folder
 
-## Compile instructions
-prerequisites: the 'py2app' 'rumps' and 'pyperclip' packages are installed with pip
+4) allow the app to run in the security settings
+open System Preferences, and click on Security and Privacy.  Unlock the lock and enter the password if you need to, then enable apps from 'Anywhere' to be opened.  Re-lock the lock and run the OCRStatusBar app.
+
+## Compile & install instructions
+prerequisites: the 'py2app' 'rumps' and 'pyperclip' packages are installed with pip (also 'pyobjc' if using homebrew python)
 
 1) `$ git clone https://github.com/bhwarren/OCRStatusBar && cd OCRStatusBar` </br>
 2) `$ sudo python setup.py py2app` </br>
