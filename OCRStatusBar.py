@@ -71,7 +71,7 @@ def getScreenSelection():
     return outfile
 
 def getText(picture):
-    command = "tesseract " + picture + " stdout -psm 1 2>/dev/null"#" stdout 2>/dev/null"
+    command = "cd /tmp/ && tesseract " + picture + " stdout -psm 1 2>/dev/null"#" stdout 2>/dev/null"
     output, err = osExec(command)
     return output.strip().decode('utf-8')
 
