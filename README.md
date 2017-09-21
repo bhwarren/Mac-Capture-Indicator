@@ -18,7 +18,7 @@ This requires the 'tesseract' software be installed.  Directions for a complete 
 
 3) install the indicator: </br>
 Download the latest OCRStatusBar.dmg file from the releases here:
-https://github.com/bhwarren/OCRStatusBar/releases/download/1.0.0/OCRStatusBar.dmg </br>
+https://github.com/bhwarren/OCRStatusBar/releases/download/1.0.1/OCRStatusBar.dmg </br>
 Then open it and drag OCRStatusBar.app into the Applications folder
 
 4) allow the app to run in the security settings
