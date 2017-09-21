@@ -28,7 +28,7 @@ open System Preferences, and click on Security and Privacy.  Unlock the lock and
 prerequisites: python2 and the 'py2app' and 'pyperclip' packages are installed with pip (also 'pyobjc' if using homebrew python). 'rumps' is also required, but if you use darkmode, then you'll want an updated version than the one available with pip. See https://github.com/chrisidefix/rumps/tree/icon-advance about installing it (yes, the necessary changes are in the icon-advance branch).
 
 1) `$ git clone https://github.com/bhwarren/OCRStatusBar && cd OCRStatusBar` </br>
-2) `$ sudo python setup.py py2app` </br>
+2) `$ sudo python setup.py py2app --emulate-shell-environment` </br>
 3) `$ sudo mv ./dist/OCRStatusBar.app ~/Applications`
 
 ## Attribution
